@@ -4,6 +4,10 @@ import { UserService } from '../shared/user.service';
 import { forEach } from '@angular/router/src/utils/collection';
 import { IfObservable } from 'rxjs/observable/IfObservable';
 import { Observable } from 'rxjs/Observable';
+import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr'
+
+
 
 @Component({
   selector: 'app-home',
@@ -13,7 +17,8 @@ import { Observable } from 'rxjs/Observable';
 export class HomeComponent implements OnInit {
   userClaims: any;
   dataSet: any[];
-  dataSet1: any;
+  dataSet1: string;
+  sql: string;
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
@@ -23,20 +28,20 @@ export class HomeComponent implements OnInit {
     });
 
     this.userService.getDatas().subscribe((data: string) => {
-      // let i: number = 0;
-      // this.dataSet=  [];
-      // data.forEach(element => {
-      //   this.dataSet.push(JSON.parse(element));
-      // });
       this.dataSet1 = data;
-      // console.log(this.dataSet);
+    });
+
+  }
+
+  onExecSQL(frm: NgForm) {
+    this.userService.addUser(frm.value.sql).subscribe((data: any) => {
+      alert(data);
     });
   }
+
 
   Logout() {
     localStorage.removeItem('userToken');
     this.router.navigate(['/login']);
   }
-
-
 }

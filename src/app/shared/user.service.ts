@@ -44,6 +44,16 @@ export class UserService {
     return  this.http.post(this.rootUrl+'/api/SqlServer/ReturnDataTable/', data, { headers: reqHeader });
    }
 
+   addUser(ssQL: string){
+    let data: Query = {
+      // query: "INSERT INTO TUsers(userName,[password],email) VALUES ('ladmin','123456',null)"
+      query: ssQL
+    }
+    
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json'});
+    return  this.http.post(this.rootUrl+'/api/SqlServer/ExecSQL', data, { headers: reqHeader });
+   }
+
 }
 export  class Query
 {

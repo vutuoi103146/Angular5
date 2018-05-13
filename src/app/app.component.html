@@ -1,41 +1,28 @@
-<!-- <div class="container" style="background: silver">
-    <ul class="nav nav-pills">
-        <li role="presentation">
-            <a routerLink="">Home</a>
-        </li>
-        <li class="navbar-right">
-            <a routerLink="signup">Đăng ký</a>
-        </li>
-        <li class="navbar-right" role="presentation">
-            <a routerLink="login">Đăng nhập</a>
-        </li>
-
-    </ul>
-</div> -->
 <div class="container">
-    <nav>
-        <div class="nav-wrapper">
-            <a routerLink="home" class="brand-logo">
-                <i class="material-icons">home</i>Home</a>
-            <ul class="right hide-on-med-and-down">
-                <li>
-                    <a routerLink="login"  style="font-size: 18px" >
-                        Đăng nhập
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <i class="material-icons">search</i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
-
-<div class="container">
-    <router-outlet></router-outlet>
-</div>
-<div class="container" style="height: 120px;background-color:lightslategrey">
-    This is Footer
+    <div class="row">
+        <nav>
+            <div class="nav-wrapper" style="background: lightslategrey">
+                <a routerLink="home" class="brand-logo">
+                    <i class="material-icons">home</i>Home</a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a routerLink="login" style="font-size: 18px">
+                            Đăng nhập
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="material-icons">search</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="row">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="row" style="height: 120px;background-color:lightslategrey">
+        This is Footer
+    </div>
 </div>

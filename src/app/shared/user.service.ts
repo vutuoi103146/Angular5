@@ -20,7 +20,6 @@ export class UserService {
       LastName: user.LastName,
       PhoneNumber: user.PhoneNumber,
     }
-    console.log(body);
     var reqHeader = new HttpHeaders({'No-Auth':'True'});
     return this.http.post(this.rootUrl + '/api/User/Register', body,{headers : reqHeader});
   }
@@ -37,7 +36,7 @@ export class UserService {
 
   getDatas(){
     let data: Query = {
-      query: "select top 1 * from [User]"
+      query: "select * from [User]"
     }
     
     var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json'});

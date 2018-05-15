@@ -1,34 +1,19 @@
 <h1>Users List </h1>
-<table class ="table">
-    <thead>
+<table class ="table table-bordered">
+    <thead style="background-color: silver; text-align:center;vertical-align:middle; font-weight: bold">
         <tr>
-            <td>UserName</td>
-            <td>PhoneMobile</td>
-         
+            <td class="col-md-4" scope="col" >UserName</td>
+            <td class="col-md-6" scope="col" >PhoneMobile</td>
+            <td class="col-md-2" scope="col" >Action</td>
         </tr>
     </thead>
     <tbody>
             <tr *ngFor ="let emp of users" >
-                    <td>{{emp.UserName}}</td>
-                    <td>{{emp.PhoneMobile}}</td>
-                    <td>
-                        <a [routerLink]="['/signup',emp.userName]">Edit</a>
+                    <td class="col-md-4">{{emp.UserName}}</td>
+                    <td class="col-md-6">{{emp.PhoneNumber}}</td>
+                    <td class="col-md-2"> 
+                        <a [routerLink]="['/signup',emp.UserName]">Edit</a>
                     </td>
                 </tr>
     </tbody>
 </table>
-<!-- <nav aria-label="Page navigation">
-    <ul class="pagination">
-      <li>
-        <a href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li *ngFor ="let page of pages" ><a [routerLink] ="['/employees']" [queryParams] ="{numberPage:page}">{{page}}</a></li>
-      <li>
-        <a href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav> -->

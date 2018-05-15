@@ -1,0 +1,9 @@
+table.table-bordered{
+    border:1px thin white;
+  }
+table.table-bordered > thead > tr > th{
+    border: 1px thin white;
+}
+table.table-bordered > tbody > tr > td{
+    border:1px thin white;
+}

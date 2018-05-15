@@ -1,17 +1,17 @@
 <h1>Users List </h1>
 <table class ="table table-bordered">
-    <thead style="background-color: silver; text-align:center;vertical-align:middle; font-weight: bold">
+    <thead >
         <tr>
-            <td class="col-md-4" scope="col" >UserName</td>
-            <td class="col-md-6" scope="col" >PhoneMobile</td>
-            <td class="col-md-2" scope="col" >Action</td>
+            <td class="col-md-4" class="textheader" >UserName</td>
+            <td class="col-md-6" class="textheader">PhoneMobile</td>
+            <td class="col-md-2" class="textheader" >Action</td>
         </tr>
     </thead>
     <tbody>
             <tr *ngFor ="let emp of users" >
-                    <td class="col-md-4">{{emp.UserName}}</td>
-                    <td class="col-md-6">{{emp.PhoneNumber}}</td>
-                    <td class="col-md-2"> 
+                    <td class="col-md-4" class="textarea">{{emp.UserName}}</td>
+                    <td class="col-md-6"  class="textarea">{{emp.PhoneNumber}}</td>
+                    <td class="col-md-2"  class="textarea"> 
                         <a [routerLink]="['/signup',emp.UserName]">Edit</a>
                     </td>
                 </tr>

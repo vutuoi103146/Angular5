@@ -1,19 +1,19 @@
 <h1>Users List </h1>
-<table class ="table table-bordered">
-    <thead >
+<table class="table table-bordered">
+    <thead>
         <tr>
-            <td class="col-md-4" class="textheader" >User Name</td>
+            <td class="col-md-4" class="textheader">User Name</td>
             <td class="col-md-6" class="textheader">Mobile</td>
-            <td class="col-md-2" class="textheader" >Action</td>
+            <td class="col-md-2" class="textheader">Action</td>
         </tr>
     </thead>
     <tbody>
-            <tr *ngFor ="let emp of users" >
-                    <td class="col-md-4" class="textarea">{{emp.UserName}}</td>
-                    <td class="col-md-6"  class="textarea">{{emp.PhoneNumber}}</td>
-                    <td class="col-md-2"  class="textarea"> 
-                        <a [routerLink]="['/editUser/',emp.UserName]" [queryParams]="{page: 0, hide: 0}">Edit</a>
-                    </td>
-                </tr>
+        <tr *ngFor="let emp of users">
+            <td class="col-md-4" class="textarea">{{emp.UserName}}</td>
+            <td class="col-md-6" class="textarea">{{emp.PhoneNumber}}</td>
+            <td class="col-md-2" class="textarea">
+                <a [routerLink]="['/editUser/',emp.UserName]" FormState ="12" [queryParams]="{page: 0, hide: 0}">Edit</a>
+            </td>
+        </tr>
     </tbody>
 </table>

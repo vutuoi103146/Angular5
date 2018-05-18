@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../shared/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
@@ -12,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class EditUserComponent implements OnInit {
 
+  @Input() FormState: number;
   user: User;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 

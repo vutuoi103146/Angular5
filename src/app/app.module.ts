@@ -19,6 +19,7 @@ import { ListUsersComponent } from './user/list-users/list-users.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { AppService } from './shared/app.services';
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import { FooterComponent } from './footer/footer.component';
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService,AuthGuard,
+  providers: [UserService,AppService,AuthGuard,
     {
       provide : HTTP_INTERCEPTORS,
       useClass : AuthInterceptor,

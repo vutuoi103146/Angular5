@@ -3,6 +3,7 @@ import { UserService } from '../../shared/user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from '../../shared/user.model';
+import { AppService } from '../../shared/app.services';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,7 +12,9 @@ import { User } from '../../shared/user.model';
 })
 export class SignInComponent implements OnInit {
   isLoginError : boolean = false;
-  constructor(private userService : UserService,private router : Router) { }
+  constructor(private userService : UserService,
+    private router : Router,
+    private appServices: AppService) { }
 
   ngOnInit() {
   }
@@ -19,7 +22,8 @@ export class SignInComponent implements OnInit {
   OnSubmit(userName,password){
      this.userService.userAuthentication(userName,password).subscribe((data : any)=>{
       localStorage.setItem('userToken',data.access_token);
-      // this.onVote.emit(data)
+      localStorage.setItem('userName',userName);
+      this.appServices.childSay(userName);
       this.router.navigate(['/home']);
     },
     (err : HttpErrorResponse)=>{

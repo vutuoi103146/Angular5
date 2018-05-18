@@ -26,6 +26,7 @@ export class EditUserComponent implements OnInit {
   private id : string
   initForm() {
    this.id =  this.activeRouter.snapshot.params.id;
+   console.log(this.activeRouter.snapshot.queryParams.page);
     this.userService.getUser(this.id).subscribe((data:string) =>{
       this.user = JSON.parse(data)[0];
     });

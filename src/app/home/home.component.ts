@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 
     });
 
-    this.userService.getDatas().subscribe((data: string) => {
+    this.userService.getListUsers().subscribe((data: string) => {
       this.dataSet1 = data;
     });
 

@@ -43,7 +43,7 @@ export class UserService {
    return  this.http.get(this.rootUrl+'/api/GetUserClaims');
   }
 
-  getDatas(){
+  getListUsers(){
     let data: Query = {
       query: "select * from [User]"
     }
@@ -52,7 +52,7 @@ export class UserService {
     return  this.http.post(this.rootUrl+'/api/SqlServer/ReturnDataTable/', data, { headers: reqHeader });
    }
 
-   getData(id: string){
+   getUser(id: string){
     let data: Query = {
       query: "select * from [User] where UserName ='" + id + "'"
     }

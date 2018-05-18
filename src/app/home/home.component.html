@@ -1,8 +1,6 @@
 <form #frm ="ngForm">
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">
-        <i class="material-icons">cloud</i>Dotnet Mob App</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li>
           <a (click)="Logout()">Logout</a>
@@ -25,10 +23,6 @@
           <span>Password : {{userClaims.Password}}</span>
           <br>
           <span>Mobile : {{userClaims.PhoneNumber}}</span>
-          <br>
-          <b> Test Web API: </b>
-          <br>
-          <span>Mobile : {{dataSet1}}</span>
           <br>
           <input type="text" name="sql" #sql="ngModel" [ngModel]/>
           <button (click) ="onExecSQL(frm)" >Exec SQL</button>

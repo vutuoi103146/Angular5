@@ -24,6 +24,15 @@ export class UserService {
     return this.http.post(this.rootUrl + '/api/User/Register', body,{headers : reqHeader});
   }
 
+  updateUser(user: User) {
+    var sql: Query =
+    {
+      query: "Update [User] set Email ='" + user.Email + "', LastName =N'" + user.LastName + "', FirstName =N'" + user.FirstName + "', PhoneNumber ='" + user.PhoneNumber +"' where UserName ='" +  user.UserName +"'"
+    } 
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json'});
+    return  this.http.post(this.rootUrl+'/api/SqlServer/ExecSQL', sql, { headers: reqHeader });
+  }
+
   userAuthentication(userName, password) {
     var data = "username=" + userName + "&password=" + password + "&grant_type=password";
     var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded','No-Auth':'True' });
@@ -37,6 +46,15 @@ export class UserService {
   getDatas(){
     let data: Query = {
       query: "select * from [User]"
+    }
+    
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json'});
+    return  this.http.post(this.rootUrl+'/api/SqlServer/ReturnDataTable/', data, { headers: reqHeader });
+   }
+
+   getData(id: string){
+    let data: Query = {
+      query: "select * from [User] where UserName ='" + id + "'"
     }
     
     var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json'});

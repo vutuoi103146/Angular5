@@ -16,6 +16,9 @@ import { appRoutes } from './routes';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { ListUsersComponent } from './user/list-users/list-users.component';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { ListUsersComponent } from './user/list-users/list-users.component';
     UserComponent,
     SignInComponent,
     HomeComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    EditUserComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

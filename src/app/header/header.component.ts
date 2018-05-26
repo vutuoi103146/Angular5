@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../shared/user.model';
 import {SignInComponent} from '../user/sign-in/sign-in.component'
-import { AppService } from '../shared/app.services';
+import { DataService } from '../shared/app.services';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,37 +12,26 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   @Input() user: User;
   userName:string ="";
-  show: boolean
-  constructor(private appServices: AppService, private router:Router) { 
+  show: boolean = true;
+  constructor(private appServices: DataService, private router:Router) { 
    
   }
 
   Logout() {
-    this.show =false;
+   // this.show =true;
     this.userName =""
+    this.show = true;
     localStorage.removeItem('userToken');
     localStorage.removeItem('userName')
     this.router.navigate(['']);
-    console.log(this.show)
   }
   ngOnInit() {
     this.setInfo();
   }
   setInfo()
   {
-      this.appServices.childSaid$.subscribe(mess => {
-      if (localStorage.getItem('userName'))
-      {
-        this.userName= localStorage.getItem('userName') ;
-      } 
-      else
-      {
-        this.userName = mess;
-        if (mess ="-1") this.userName =""
-      }
-     
-    });
-    this.userName= localStorage.getItem('userName') ;
-    this.show = (this.userName =="");
+    // this.appServices.currentMessage.subscribe(message => this.userName = message)
+    // this.show = (this.userName =="")
+    // console.log(this.show)
   }
 }

@@ -34,3 +34,14 @@ div.error-message i{
 .tabs .tab a.active{
     background-color: #fff !important;
 }
+
+button
+{
+    border-radius: 5px;
+    background-color:#0080ff;
+    color: white !important;
+    border: none;
+    height: 25px;
+    line-height: 25px;
+}
+

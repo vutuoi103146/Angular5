@@ -2,3 +2,8 @@ a
 {
     font-size: 18px;
 }
+
+input[type="text"],label
+{
+    font-size: 18px;
+}

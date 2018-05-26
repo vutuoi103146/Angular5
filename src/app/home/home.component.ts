@@ -6,9 +6,6 @@ import { IfObservable } from 'rxjs/observable/IfObservable';
 import { Observable } from 'rxjs/Observable';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr'
-import { AppService } from '../shared/app.services';
-
-
 
 @Component({
   selector: 'app-home',
@@ -20,7 +17,7 @@ export class HomeComponent implements OnInit {
   dataSet: any[];
   dataSet1: string;
   sql: string;
-  constructor(private router: Router, private userService: UserService, private appServices: AppService) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
     this.userService.getUserClaims().subscribe((data: any) => {

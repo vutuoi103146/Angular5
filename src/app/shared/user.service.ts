@@ -9,8 +9,9 @@ import { query } from '@angular/animations';
 @Injectable()
 export class UserService {
   readonly rootUrl = 'http://localhost:35257';
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {
+    
+   }
   registerUser(user: User) {
     const body: User = {
       UserName: user.UserName,
@@ -47,7 +48,6 @@ export class UserService {
     let data: Query = {
       query: "select * from [User]"
     }
-    
     var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json'});
     return  this.http.post(this.rootUrl+'/api/SqlServer/ReturnDataTable/', data, { headers: reqHeader });
    }
@@ -63,17 +63,13 @@ export class UserService {
 
    addUser(ssQL: string){
     let data: Query = {
-      // query: "INSERT INTO TUsers(userName,[password],email) VALUES ('ladmin','123456',null)"
       query: ssQL
     }
-    
     var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json'});
     return  this.http.post(this.rootUrl+'/api/SqlServer/ExecSQL', data, { headers: reqHeader });
    }
-
 }
 export  class Query
 {
     public  query:string;
-
 }

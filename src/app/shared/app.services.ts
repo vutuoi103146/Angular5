@@ -1,18 +1,16 @@
 import { Subject } from 'rxjs/Subject';
 import { Injectable } from '@angular/core';
-
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
-export class AppService {
+export class DataService {
 
-  private parentSaySource = new Subject<string>();
-  private childSaySource = new Subject<string>();
-  
-  parentSaid$ = this.parentSaySource.asObservable();
-  childSaid$ = this.childSaySource.asObservable();
-  parentSay(message: string) {
-    this.parentSaySource.next(message);
+  private messageSource = new BehaviorSubject("default message");
+  currentMessage = this.messageSource.asObservable();
+
+  constructor() { }
+
+  changeMessage(message: string) {
+    this.messageSource.next(message)
   }
-  childSay(message: string) {
-    this.childSaySource.next(message);
-  }
+
 }

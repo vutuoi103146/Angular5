@@ -19,7 +19,7 @@ import { ListUsersComponent } from './user/list-users/list-users.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { AppService } from './shared/app.services';
+import { DataService } from './shared/app.services';
 
 
 @NgModule({
@@ -42,7 +42,7 @@ import { AppService } from './shared/app.services';
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService,AppService,AuthGuard,
+  providers: [UserService,DataService,AuthGuard,
     {
       provide : HTTP_INTERCEPTORS,
       useClass : AuthInterceptor,

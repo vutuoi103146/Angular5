@@ -12,7 +12,7 @@
             <td class="col-md-4" class="textarea">{{emp.UserName}}</td>
             <td class="col-md-6" class="textarea">{{emp.PhoneNumber}}</td>
             <td class="col-md-2" class="textarea">
-                <a [routerLink]="['/editUser/',emp.UserName]" FormState ="12" [queryParams]="{page: 0, hide: 0}">Edit</a>
+                <a [routerLink]="['/editUser/',emp.UserName]" [queryParams]="{page: 0, hide: 0}">Edit</a>
             </td>
         </tr>
     </tbody>

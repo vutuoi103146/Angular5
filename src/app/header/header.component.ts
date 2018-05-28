@@ -18,11 +18,9 @@ export class HeaderComponent implements OnInit {
   }
 
   Logout() {
-   // this.show =true;
     this.userName =""
     this.show = true;
     localStorage.removeItem('userToken');
-    localStorage.removeItem('userName')
     this.router.navigate(['']);
   }
   ngOnInit() {

@@ -20,6 +20,8 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DataService } from './shared/app.services';
+import { LoginComponent } from './user/login/login.component';
+import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { DataService } from './shared/app.services';
     ListUsersComponent,
     EditUserComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

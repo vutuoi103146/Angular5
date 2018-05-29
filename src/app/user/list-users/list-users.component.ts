@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-users.component.css']
 })
 export class ListUsersComponent implements OnInit {
-
   users: any[];
   constructor(private userService: UserService, private router: Router) {
 
@@ -19,5 +18,4 @@ export class ListUsersComponent implements OnInit {
       this.users = JSON.parse(data);
     });
   }
-
 }

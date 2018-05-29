@@ -13,7 +13,6 @@ input.ng-invalid.ng-dirty{
     border-color : #e91e63 !important;
     border-style: solid;
     border-width: 1px 1px;
-    color: white;
 }
 
 
@@ -59,6 +58,7 @@ input[type="text"],input[type="password"]
     border-width: thin !important;
     border-color:lightgray !important; 
     font-size: 11px !important;
+    border-radius: 10px;
 }
 
 body{

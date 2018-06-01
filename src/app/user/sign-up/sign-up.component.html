@@ -19,7 +19,10 @@
   <div class="col-md-12">
     <div class="col-md-2">Username</div>
     <div class="col-md-4">
-      <input class="col-md-4" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required>
+      <input class="col-md-4" type="text" name="UserName" #UserName="ngModel" on-focusout="focusOutFunction()" id ="UserName" [(ngModel)]="user.UserName" required>
+    </div>
+    <div id ="divError" class="col-md-2">
+      {{strCheckUser}}
     </div>
   </div>
   <div class="col-md-12">
@@ -46,7 +49,5 @@
       <div class="col-md-6">
           <button [disabled]="!userRegistrationForm.valid" class="btn btn-submit pull-right" type="submit">Submit</button>
       </div>
-
-    
   </div>
 </form>

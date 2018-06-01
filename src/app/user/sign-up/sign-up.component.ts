@@ -3,6 +3,9 @@ import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr'
 import { User } from '../../shared/user.model';
 import { UserService } from '../../shared/user.service';
+import { HttpErrorResponse } from '@angular/common/http';
+
+declare var $:any;
 
 @Component({
   selector: 'app-sign-up',
@@ -12,10 +15,31 @@ import { UserService } from '../../shared/user.service';
 export class SignUpComponent implements OnInit {
   user: User;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-
+  strCheckUser: string ="";
   constructor(private userService: UserService, private toastr: ToastrService) { }
+  focusOutFunction()
+  {
+    this.userService.getUser(this.user.UserName).subscribe((data : any)=>{
 
+      if (JSON.parse(data).length ==0)
+      {
+        this.strCheckUser="User hợp lệ";
+      }
+      else
+      {
+        this.strCheckUser="User không hợp lệ";
+      }
+    },
+    (err : HttpErrorResponse)=>{
+      $("divError").value="user name invalid"
+      console.log("user name invalid")
+    });
+  }
   ngOnInit() {
+    $('#UserName').blur(function(){
+     
+    })
+
     this.resetForm();
   }
 

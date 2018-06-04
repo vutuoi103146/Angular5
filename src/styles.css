@@ -43,7 +43,7 @@ input.ng-invalid.ng-dirty{
 button
 {
     border-radius: 5px;
-    background-color:#0080ff;
+    background-color:rgb(24, 143, 255);
     color: white !important;
     border: none;
     height: 25px;

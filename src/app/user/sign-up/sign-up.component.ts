@@ -1,9 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr'
 import { User } from '../../shared/user.model';
 import { UserService } from '../../shared/user.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
+
+@Pipe({name: 'safeHtml'})
+export class Safe implements PipeTransform {
+  constructor(private sanitizer:DomSanitizer){}
+
+  transform(style) {
+    return this.sanitizer.bypassSecurityTrustStyle(style);
+  }
+}
 
 declare var $:any;
 
@@ -12,33 +22,40 @@ declare var $:any;
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
+
+
 export class SignUpComponent implements OnInit {
   user: User;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  strCheckUser: string ="";
+  isUserValid: boolean = true;
+  url: string ="";
+  StringEr: string ="";
   constructor(private userService: UserService, private toastr: ToastrService) { }
-  focusOutFunction()
+  focusOutFunction(frm: NgForm)
   {
+    
     this.userService.getUser(this.user.UserName).subscribe((data : any)=>{
 
       if (JSON.parse(data).length ==0)
       {
-        this.strCheckUser="User hợp lệ";
+        this.isUserValid = true;
+        this.StringEr ="You account valid."
       }
       else
       {
-        this.strCheckUser="User không hợp lệ";
+        this.isUserValid = false;
+        this.StringEr = 'Account already exists. <a href="login">Sign in</a>'
       }
     },
-    (err : HttpErrorResponse)=>{
-      $("divError").value="user name invalid"
-      console.log("user name invalid")
+    (err : Error)=>{
+      this.isUserValid = false;
+      this.StringEr = 'Account already exists. <a href="login">Sign in</a>'
     });
   }
   ngOnInit() {
-    $('#UserName').blur(function(){
+    // $('#UserName').blur(function(){
      
-    })
+    // })
 
     this.resetForm();
   }

@@ -11,7 +11,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { UserComponent } from './user/user.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { HomeComponent } from './home/home.component';
-import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { SignUpComponent, Safe } from './user/sign-up/sign-up.component';
 import { appRoutes } from './routes';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -46,7 +46,7 @@ import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService,DataService,AuthGuard,
+  providers: [UserService,DataService,Safe, AuthGuard,
     {
       provide : HTTP_INTERCEPTORS,
       useClass : AuthInterceptor,

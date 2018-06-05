@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../shared/user.service';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-forgot-password',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor() { }
+  isLoginError : boolean = false;
+  strErrror: string =""
+  constructor(private userService : UserService,private router : Router){
 
-  ngOnInit() {
   }
+  ngOnInit() {
+  
+  }
+  OnSubmit(userName,password){
+     this.userService.userAuthentication(userName,password).subscribe((data : any)=>{
 
+    },
+    (err : HttpErrorResponse)=>{
+      this.strErrror ="User Name or Password incorect!";
+      this.isLoginError = true;
+
+    });
+  }
 }

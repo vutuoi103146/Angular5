@@ -73,3 +73,12 @@ export  class Query
 {
     public  query:string;
 }
+
+
+export class Email
+{
+    public  MailFrom:string;
+    public  MailTo:string;
+    public  Subject:string;
+    public  Body:string;
+}

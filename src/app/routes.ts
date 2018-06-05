@@ -10,9 +10,13 @@ import { LoginComponent } from './user/login/login.component';
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 
 export const appRoutes: Routes = [
-    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-    { path: 'listUsers', component: ListUsersComponent, canActivate: [AuthGuard] },
-    { path: 'editUser/:id', component: EditUserComponent, canActivate: [AuthGuard] },
+    // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+    // { path: 'listUsers', component: ListUsersComponent, canActivate: [AuthGuard] },
+    // { path: 'editUser/:id', component: EditUserComponent, canActivate: [AuthGuard] },
+    { path: 'home', component: HomeComponent },
+    { path: 'listUsers', component: ListUsersComponent },
+    { path: 'editUser/:id', component: EditUserComponent},
+
     { path: 'signup', component: SignUpComponent },
     { path: 'login', component: LoginComponent },
     { path: 'forgotPassword', component: ForgotPasswordComponent },
